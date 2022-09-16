@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var Emergento\PonyUShippingMethodFrontendUi\Block\Checkout\Onepage\Success\DeliveryDetails $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php if ($block->getData('error_message')) : ?>
+    <div class="message message-warning warning">
+        <p><?= $escaper->escapeHtml(__('The delivery date is not confirmed yet. Please contact us for more information.')) ?></p>
+    </div>
+<?php elseif ($block->getData('delivery_date')) : ?>
+    <p>
+        <?= $escaper->escapeHtml(__('Your delivery is estimated to be performed on %1.', $block->getData('delivery_date') )) ?>
+    </p>
+<?php endif; ?>

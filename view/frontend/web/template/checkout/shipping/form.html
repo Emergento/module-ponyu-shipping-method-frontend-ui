@@ -1,0 +1,21 @@
+<fieldset id="customer-email-fieldset" class="fieldset" data-bind="visible: isVisible">
+    <div class="field" id="carrier-slot-list-wrapper" >
+        <div data-bind="visible: !isAsap()">
+            <p>
+                <span data-bind="i18n: 'Select delivery slot.'"></span>
+            </p>
+            <select
+                id="carrier-slot"
+                data-bind="options: slots,
+                           optionsValue: (item) => JSON.stringify(item),
+                           optionsText: 'label'"
+                class="select"
+            >
+            </select>
+        </div>
+    </div>
+    <div class="field" data-bind="visible: isAsap()">
+        <span data-bind="i18n: 'Order will be delivered'"></span>
+        <span data-bind="text: selectedSlotLabel"></span>
+    </div>
+</fieldset>
