@@ -49,6 +49,4 @@ class IsDeliveryValid implements HttpGetActionInterface
         $result->setData([]);
         return $result;
     }
-
-
 }

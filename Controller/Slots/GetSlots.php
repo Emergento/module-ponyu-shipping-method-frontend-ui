@@ -39,7 +39,7 @@ class GetSlots implements HttpGetActionInterface
         $slots = [];
         $methodCode = $this->request->getParam('method_code');
         $addressToInventorySourceSelectionAddress = $this->addressFactory->create([
-            'street' => implode('' , $this->request->getParam('street') ?? []) ?? '',
+            'street' => implode('', $this->request->getParam('street') ?? []) ?? '',
             'postcode' => $this->request->getParam('postcode') ?? '',
             'city' => $this->request->getParam('city') ?? '',
             'country' => $this->request->getParam('country') ?? '',
@@ -54,7 +54,7 @@ class GetSlots implements HttpGetActionInterface
                 (int) $this->storeManager->getStore()->getId()
             );
 
-            foreach($slots as &$slot) {
+            foreach ($slots as &$slot) {
                 $slot['label'] = $this->generateSlotLabel->execute(
                     new \DateTime($slot['deliveryDateStart'], $ponyUTimeZone),
                     new \DateTime($slot['deliveryDateEnd'], $ponyUTimeZone)
